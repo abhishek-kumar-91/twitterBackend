@@ -7,11 +7,11 @@ const router = express.Router();
 router.route("/register").post(Register);
 router.route("/login").post(Login);
 router.route("/logout").get(Logout);
-router.route("/bookmark/:id").put(isAuthenticated, bookmarks);
-router.route("/profile/:id").get(isAuthenticated, getMyProfile);
-router.route("/otheruser/:id").get(isAuthenticated, getOtherUser);
-router.route("/follow/:id").post(isAuthenticated, follow);
-router.route("/unfollow/:id").post(isAuthenticated, unfollow);
+router.route("/bookmark/:id").put( bookmarks);
+router.route("/profile/:id").get( getMyProfile);
+router.route("/otheruser/:id").get( getOtherUser);
+router.route("/follow/:id").post( follow);
+router.route("/unfollow/:id").post( unfollow);
 
 
 export default router
