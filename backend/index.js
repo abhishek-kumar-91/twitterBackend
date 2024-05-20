@@ -23,10 +23,20 @@ app.use(express.urlencoded({
 app.use(express.json());
 app.use(cookieParser());
 
-const corsOption = {
-    origin: true,
-    
-}
+
+const allowedOrigins = ['https://twitter-clone-navy-sigma.vercel.app', 'http://localhost:5173']; // Add other allowed origins here
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // This is required to allow cookies
+  optionsSuccessStatus: 200 // For legacy browser support
+};
 
 app.use(cors(corsOption));
 
