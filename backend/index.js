@@ -38,7 +38,7 @@ const corsOptions = {
   optionsSuccessStatus: 200 // For legacy browser support
 };
 
-app.use(cors(corsOption));
+app.use(cors(corsOptions));
 
 //route
 
